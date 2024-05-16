@@ -2,24 +2,25 @@
   <div class="row">
     <div class="mx-auto">
       <h1>welcome to
-
-      <span>Bookers</span>
+      <i class="fa-solid fa-book"></i>
+      <strong class="fw-bold">Bookers</strong>
       !!</h1>
+      <div></div>
       <p>In
-
-      <span>Bookers</span>
+      <i class="fa-solid fa-book"></i>
+      <strong class="fw-bolder">Bookers</strong>
       ,</p>
       <p>
-        you can share and exchange your opinions, inpressions,
+        you can share and exchange your opinions , inpressions ,
         and emotions
       </p>
       <p>about various books!</p>
 
       <div class="d-grid gap-2 col-6 mx-auto">
-        <%= link_to root_path, class: "btn btn-info", autocomplete:"off" do %>
+        <%= link_to new_user_session_path, class: "btn btn-info", autocomplete:"off" do %>
           <span>Log in</span>
         <% end %>
-        <%= link_to root_path, class: "btn btn-success", autocomplete:'off' do %>
+        <%= link_to new_user_registration_path, class: "btn btn-success", autocomplete:'off' do %>
           <span>Sign up</span>
         <% end %>
       </div>
