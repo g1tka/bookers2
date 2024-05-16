@@ -15,14 +15,40 @@
     <header class="bg-dark text-white pt-5 pb-4">
       <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-          <a class="navbar-brand" href="/">Bookers</a>
+          <a class="navbar-brand" href= "/">Bookers</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
+              
               <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to "/" class: 'btn btn-default' do %>
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "/" class: 'btn btn-default' do %>
+                <i class="fa-solid fa-users"></i>
+                <span>Users</span>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "/" class: 'btn btn-default' do %>
+                <i class="fa-solid fa-book-open"></i>
+                <span>Books</span>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "/" class: 'btn btn-default' do %>
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Log out</span>
+              </li>
+
+              <% else %>
               <li class="nav-item">
                 <%= link_to "/" class: 'btn btn-default' do %>
                   <i class="fa-solid fa-house"></i>
@@ -48,31 +74,6 @@
                 <% end %>
               </li>
 
-              <% else %>
-              <li class="nav-item">
-                <%= link_to "/" class: 'btn btn-default' do %>
-                <i class="fa-solid fa-house"></i>
-                <span>Home</span>
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "/" class: 'btn btn-default' do %>
-                <i class="fa-solid fa-users"></i>
-                <span>Users</span>
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "/" class: 'btn btn-default' do %>
-                <i class="fa-solid fa-book-open"></i>
-                <span>Books</span>
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "/" class: 'btn btn-default' do %>
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span>Log out</span>
-                <% end %>
-              </li>
             </ul>
           </div>
         </div>
