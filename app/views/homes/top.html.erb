@@ -1,6 +1,6 @@
 <div class="container" >
   <div class="row">
-    <div class="mx-auto "
+    <div class="mx-auto">
       <h1>welcome to
 
       <span>Bookers</span>
@@ -16,12 +16,13 @@
       <p>about various books!</p>
 
       <div class="d-grid gap-2 col-6 mx-auto">
-        <%= link_to "/" class: 'btn btn-Info' autocomplete="off" do %>
-          Log in
+        <%= link_to root_path, class: "btn btn-info", autocomplete:"off" do %>
+          <span>Log in</span>
         <% end %>
-        <%= link_to "/" class: 'btn btn-success' autocomplete="off" do %>
-          Sign up
+        <%= link_to root_path, class: "btn btn-success", autocomplete:'off' do %>
+          <span>Sign up</span>
         <% end %>
+      </div>
     </div>
   </div>
 </div>
