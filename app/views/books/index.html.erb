@@ -1,2 +1,61 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3 bg-primary">
+      <h1>User info</h1>
+      <%= image_tag post_image.user.get_profile_image(100,100) %>
+      <table class="table">
+        <tbody>
+        <% @user.each do |user| %>
+          <tr></tr>
+          <tr>
+            <th>name</th>
+            <th>user.name</th>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <th>user.introduction</th>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <button></button>
+
+    <h2>New book</h2>
+    <%=form_with model: @book do |f| %>
+    <div class="input-group mb-3 mt-4">
+    <div class="input-group-prepend">
+      <%= f.text_field :title, class:"form-control", placeholder:"Title" %>
+    </div>
+    <%= f.text_area :opinion, class:"form-control", rows:"3", placeholder:"Opinion" %>
+    <%= f.submit 'Create Book', class:"btn btn-lg btn-block btn-info mt-4" %>
+    <% end %>
+
+    <!--右側の設定-->
+    <div class="col-md-8 offset-md-1 bg-warning">
+      <h1>Books</h1>
+      <table>
+        <t.head>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Opinion</th>
+          </tr>
+        </t.head>
+
+        <t.body>
+          <% @books.each do |book| %>
+          <tr>
+            <td><%= image_tag 'no-image.jpg' %></td>
+            <td><%= book.title %></td>
+            <td><%= book.opinion %></td>
+          </tr>
+          <% end %>
+        </t.body>
+      </table>
+    </div>
+
+
+  </div>
+</div>
