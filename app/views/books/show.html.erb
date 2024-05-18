@@ -1,3 +1,39 @@
-show page
+<div class="container">
+  <div class="row">
 
-<% link to "Destroy", books_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>>
+
+<!--左側の部分テンプレート-->
+<div class="col-md-3">
+</div>
+
+<!--右側のBook詳細画面-->
+<div class="col-md-8 offset-md-1">
+  <h2>Book detail</h2>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>
+          <!--%= image_tag book.user.get_profile_image(100,100) %>-->
+          <%= @book.user.name %>
+        </td>
+        <td>
+          <%= @book.title %>
+        </td>
+        <td>
+          <%= @book.opinion %>
+        </td>
+        <td>
+          <% if @book.user == current_user %>
+            <%= link_to "Edit", edit_book_path(@book.id), class: "button btn-sm btn-success" %>
+          <% end %>
+        </td>
+        <td>
+          <% if @book.user == current_user %>
+            <%= link_to "Destroy", books_path(@book.id), class: "button btn-sm btn-danger", method: :delete,
+                         "data-confirm" => "本当に消しますか？" %>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

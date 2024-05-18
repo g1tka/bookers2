@@ -1,30 +1,76 @@
-<div>
-  <h3><%= @user.name %></h3>
-  <%= image_tag @user.get_profile_image(100,100) %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
 
-  <div>
-    <%= link_to edit_user_path(@user.id), class: 'btn btn-default' do %>
-      <i class="fa-solid fa-user-gear"></i>
-    <% end %>
+    <div class="col-md-3">
+      <h3><%= @user.name %></h3>
+      <%= image_tag @user.get_profile_image(100,100) %>
+      <div>
+        <%= link_to edit_user_path(@user.id), class: 'btn btn-default' do %>
+          <i class="fa-solid fa-user-gear"></i>
+        <% end %>
+      </div>
+      <table class="table">
+          <thead>
+            <tr>
+              <th>image</th>
+              <th>name</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @books.each do |book| %>
+            <tr>
+              <th>
+                <%= image_tag book.user.get_profile_image(100,100) %>
+              </th>
+              <th><%= book.user.name %></th>
+              <th><%= link_to "show", "users/:id" %></th>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+    <div>
+      <h2>New book</h2>
+      <%=form_with model: @book do |f| %>
+      <div class="input-group mb-3 mt-4">
+      <div class="input-group-prepend">
+        <label for="inputTitle">Title</label>
+        <%= f.text_field :title, class:"form-control" %>
+      </div>
+      <label for="inputOpinion">Opinion</label>
+      <%= f.text_area :opinion, class:"form-control", rows:"3" %>
+      <%= f.submit 'Create Book', class:"btn btn-lg btn-block btn-info mt-4" %>
+      <% end %>
+      </div>
+    </div>
+
+    <!--ここからUser詳細、書いた本いちらん-->
+    <div class="col-md-8 offset-md-1 bg-warning">
+      <div>
+      <h1>Books</h1>
+      <table>
+        <t.head>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Opinion</th>
+          </tr>
+        </t.head>
+
+        <t.body>
+          <% @books.each do |book| %>
+          <tr>
+            <td><%= image_tag 'no-image.jpg' %></td>
+            <td><%= book.title %></td>
+            <td><%= book.opinion %></td>
+          </tr>
+          <% end %>
+        </t.body>
+      </table>
+      </div>
+    </div>
+
+
   </div>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>image</th>
-      <th>name</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @books.each do |book| %>
-    <tr>
-      <th>
-        <%= image_tag book.user.get_profile_image(100,100) %>
-      </th>
-      <th><%= book.user.name %></th>
-      <th><%= link_to "show", "users/:id" %></th>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+</div>
