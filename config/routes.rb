@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :books, only: [:index, :edit, :show, :new, :create, :destroy]
   resources :users, only: [:show, :edit, :update]
+#  get 'books/:id' => 'books#show', as 'book'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
 
@@ -27,3 +29,5 @@ end
 #                       DELETE /books/:id(.:format)                         books#destroy
 #             edit_user GET    /users/:id/edit(.:format)                    users#edit
 #                  user GET    /users/:id(.:format)                         users#show
+#                       PATCH  /users/:id(.:format)                         users#update
+#                       PUT    /users/:id(.:format)                         users#update

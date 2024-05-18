@@ -1,39 +1,69 @@
 <div class="container px-5 px-sm-0">
-  <div class="row">
-    <div class="col-md-3 bg-primary">
-      <h1>User info</h1>
-      <%= image_tag @book.user.get_profile_image(100,100) %>
-      <table class="table">
-        <tbody>
-        <% @user.each do |user| %>
-          <tr></tr>
-          <tr>
-            <th>name</th>
-            <th>user.name</th>
-          </tr>
-          <tr>
-            <th>introduction</th>
-            <th>user.introduction</th>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
-    </div>
 
-    <button></button>
-
-    <h2>New book</h2>
-    <%=form_with model: @book do |f| %>
-    <div class="input-group mb-3 mt-4">
-    <div class="input-group-prepend">
-      <%= f.text_field :title, class:"form-control", placeholder:"Title" %>
-    </div>
-    <%= f.text_area :opinion, class:"form-control", rows:"3", placeholder:"Opinion" %>
-    <%= f.submit 'Create Book', class:"btn btn-lg btn-block btn-info mt-4" %>
+  <!--New bookが失敗したときのエラーメッセージ-->
+  <div class="row bg-secondary">
+    <% if @book.errors.any? %>
+      <%= @book.errors.count %> errors prohibited this obj from being saved:
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+       <% end %>
+      </ul>
     <% end %>
+  </div>
+
+  <div class="row">
+
+    <!--左側の箱から-->
+    <div class="col-md-3 bg-primary">
+
+      <!--左上の要素-->
+      <div>
+        <h1>User info</h1>
+        <!--%= image_tag @book.user.get_profile_image(100,100) %>-->
+        <table class="table">
+          <tbody>
+          <!--% @user.each do |user| %>-->
+            <tr></tr>
+            <tr>
+              <th>name</th>
+              <th>user.name</th>
+            </tr>
+            <tr>
+              <th>introduction</th>
+              <th>user.introduction</th>
+            </tr>
+          <!--% end %>-->
+          </tbody>
+        </table>
+  
+        <button></button>
+      </div>
+
+      <!--左下の要素-->
+      <div>
+        <h2>New book</h2>
+  
+  
+  
+        <%=form_with model: @book do |f| %>
+        <div class="input-group mb-3 mt-4">
+        <div class="input-group-prepend">
+          <label for="inputTitle">Title</label>
+          <%= f.text_field :title, class:"form-control" %>
+        </div>
+        <label for="inputOpinion">Opinion</label>
+        <%= f.text_area :opinion, class:"form-control", rows:"3" %>
+        <%= f.submit 'Create Book', class:"btn btn-lg btn-block btn-info mt-4" %>
+        <% end %>
+        </div>
+      </div>
+
+    </div>
 
     <!--右側の設定-->
     <div class="col-md-8 offset-md-1 bg-warning">
+      <div>
       <h1>Books</h1>
       <table>
         <t.head>
@@ -54,8 +84,9 @@
           <% end %>
         </t.body>
       </table>
+      </div>
     </div>
 
 
-  </div>
+  </div>  <!--rowの箱終わり-->
 </div>
