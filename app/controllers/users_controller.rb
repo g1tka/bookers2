@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  
+  def index
+  end  
+    
   def show
     if current_user && params[:id] == current_user.id.to_s
       @user = current_user

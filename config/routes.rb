@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'homes/about' => 'homes#about', as: 'about'
   devise_for :users
   resources :books, only: [:index, :edit, :show, :new, :create, :destroy]
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update]
 #  get 'books/:id' => 'books#show', as 'book'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -27,6 +27,8 @@ end
 #             edit_book GET    /books/:id/edit(.:format)                    books#edit
 #                  book GET    /books/:id(.:format)                         books#show
 #                       DELETE /books/:id(.:format)                         books#destroy
+
+#                 users GET    /users(.:format)                             users#index
 #             edit_user GET    /users/:id/edit(.:format)                    users#edit
 #                  user GET    /users/:id(.:format)                         users#show
 #                       PATCH  /users/:id(.:format)                         users#update
