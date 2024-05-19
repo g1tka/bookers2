@@ -1,76 +1,68 @@
-<div class="container px-5 px-sm-0">
+<div class="container px-5 px-sm-0 mt-3">
   <div class="row">
 
     <div class="col-md-3">
-      <h3><%= @user.name %></h3>
-      <%= image_tag @user.get_profile_image(100,100) %>
+
       <div>
-        <%= link_to edit_user_path(@user.id), class: 'btn btn-default' do %>
-          <i class="fa-solid fa-user-gear"></i>
-        <% end %>
-      </div>
-      <table class="table">
+        <h2>User info</h2>
+        <%= image_tag @user.get_profile_image(100,100) %>
+        <table class="table">
           <thead>
             <tr>
-              <th>image</th>
-              <th>name</th>
-              <th></th>
+              <th style="border-bottom:1px">name</th>
+              <th style="border-bottom:1px"><%= @user.name %></th>
+            </tr>
+            <tr>
+              <th style="border-bottom:none">introduction</th>
+              <th style="border-bottom:none"><%= @user.introduction %></th>
             </tr>
           </thead>
-          <tbody>
-            <% @books.each do |book| %>
-            <tr>
-              <th>
-                <%= image_tag book.user.get_profile_image(100,100) %>
-              </th>
-              <th><%= book.user.name %></th>
-              <th><%= link_to "show", "users/:id" %></th>
-            </tr>
-            <% end %>
-          </tbody>
         </table>
-    </div>
-    <div>
-      <h2>New book</h2>
-      <%=form_with model: @book do |f| %>
-      <div class="input-group mb-3 mt-4">
-      <div class="input-group-prepend">
-        <label for="inputTitle">Title</label>
-        <%= f.text_field :title, class:"form-control" %>
+        <div>
+          <%= link_to edit_user_path(@user.id), class: 'btn btn-outline-secondary btn-block' do %>
+            <i class="fa-solid fa-user-gear"></i>
+          <% end %>
+        </div>
       </div>
-      <label for="inputOpinion">Opinion</label>
-      <%= f.text_area :opinion, class:"form-control", rows:"3" %>
-      <%= f.submit 'Create Book', class:"btn btn-lg btn-block btn-info mt-4" %>
-      <% end %>
-      </div>
-    </div>
 
-    <!--ここからUser詳細、書いた本いちらん-->
-    <div class="col-md-8 offset-md-1 bg-warning">
       <div>
-      <h1>Books</h1>
-      <table>
-        <t.head>
-          <tr>
-            <th scope="col"></th>
-            <th scope="col">Title</th>
-            <th scope="col">Opinion</th>
-          </tr>
-        </t.head>
+        <h2 class="mt-3">New book</h2>
+        <%=form_with model: @book do |f| %>
+        <div class="form">
+          <label for="inputTitle">Title</label>
+          <div><%= f.text_field :title, class:"form-control" %></div>
+          <label for="inputOpinion">Opinion</label>
+          <div><%= f.text_area :opinion, class:"form-control", rows:"3" %></div>
+          <%= f.submit 'Create Book', class:"btn btn-success mt-3" %>
+          <% end %>
+        </div>
+      </div>
 
-        <t.body>
+    </div>
+
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+            <th class="colspan=3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
           <% @books.each do |book| %>
           <tr>
-            <td><%= image_tag 'no-image.jpg' %></td>
+            <td class="col p-3"><%= image_tag @user.get_profile_image(100,100) %></td>
             <td><%= book.title %></td>
             <td><%= book.opinion %></td>
           </tr>
           <% end %>
-        </t.body>
+        </tbody>
       </table>
-      </div>
     </div>
-
 
   </div>
 </div>

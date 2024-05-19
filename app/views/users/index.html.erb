@@ -1,1 +1,34 @@
-users list is here
+<div class="container px-5 px-sm-0">
+  <div class="row">
+
+    <div class="col-md-3"></div>
+    
+    <div class="col-md-8 offset-md-1 bg-warning">
+      
+      <div>
+        <h1>Users</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">image</th>
+              <th scope="col">name</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <% @users.each do |user| %>
+            <tr>
+              <td><%= user.image %></td>
+              <td><%= user.name %></td>
+              <td><%= link_to "show", "その人の個人ページ" %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      
+    <div>
+      
+      
+  </div>
+</div>
