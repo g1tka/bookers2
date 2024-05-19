@@ -83,7 +83,9 @@
     </header>
 
     <main class="mb-auto">
-    <%= yield %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
     </main>
 
     <footer class="mt-5 bg-white text-black pt-3 pb-5">
