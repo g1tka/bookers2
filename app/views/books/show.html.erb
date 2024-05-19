@@ -2,9 +2,9 @@
   <div class="row">
 
 
-<!--左側の部分テンプレート-->
-<div class="col-md-3">
-</div>
+    <div class="col-md-3 bg-primary">
+      <%= render 'users/userbook', book: @book_, user: @user %>
+    </div>
 
 <!--右側のBook詳細画面-->
 <div class="col-md-8 offset-md-1">
@@ -13,11 +13,15 @@
     <tbody>
       <tr>
         <td>
-          <!--%= image_tag book.user.get_profile_image(100,100) %>-->
-          <%= @book.user.name %>
+          <%= image_tag @book.user.get_profile_image(100,100) %>
+          <%= link_to users_path do %>
+            <br><%= @book.user.name %>
+          <% end %>
         </td>
         <td>
-          <%= @book.title %>
+          <%= link_to users_path do %>
+            <%= @book.title %>
+          <% end %>
         </td>
         <td>
           <%= @book.opinion %>
