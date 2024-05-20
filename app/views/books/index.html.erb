@@ -17,31 +17,38 @@
 
 
     <div class="col-md-8 offset-md-1">
-      <h2>Books</h2>
-      <table class="table tablehover table-inverse">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Title</th>
-            <th>Opinion</th>
-            <th class="colspan=3"></th>
-          </tr>
-        </thead>
 
-        <tbody>
-          <% @books.each do |book| %>
-          <tr>
-            <td class="col p-3"><%= image_tag book.user.get_profile_image(100,100) %></td>
-            <td>
-              <%= link_to book_path(book.id), class:"link-primary" do %>
-                <%= book.title %>
-              <% end %>
-            </td>
-            <td><%= book.body %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <div>
+        <h2>Books</h2>
+        <table class="table tablehover table-inverse">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Opinion</th>
+              <th class="colspan=3"></th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <% @books.each do |book| %>
+            <tr>
+              <td>
+                <%= link_to user_path(book.id) do %>
+                  <%= image_tag book.user.get_profile_image(100,100) %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to book_path(book.id), class:"link-primary" do %>
+                  <%= book.title %>
+                <% end %>
+              </td>
+              <td><%= book.body %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
     </div>
 
 

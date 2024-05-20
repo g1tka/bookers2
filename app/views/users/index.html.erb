@@ -5,7 +5,7 @@
       <%= render 'userbook', user: current_user, book: @book %>
     </div>
 
-    <div class="col-md-8 offset-md-1 bg-warning">
+    <div class="col-md-8 offset-md-1">
 
       <div>
         <h1>Users</h1>
@@ -22,7 +22,7 @@
             <tr>
               <td><%= image_tag user.get_profile_image(100,100) %></td>
               <td><%= user.name %></td>
-              <td><%= link_to "show", user_path(user.id) %></td>
+              <td><%= link_to "Show", user_path(user.id) %></td>
             </tr>
             <% end %>
           </tbody>
