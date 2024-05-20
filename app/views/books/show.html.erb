@@ -12,18 +12,18 @@
         <tbody>
           <tr>
             <td>
-              <%= image_tag @book.user.get_profile_image(100,100) %>
-              <%= link_to users_path do %>
+              <%= link_to user_path(@book.id) do %>
+               <%= image_tag @book.user.get_profile_image(100,100) %>
                 <br><%= @book.user.name %>
               <% end %>
             </td>
             <td>
-              <%= link_to users_path do %>
+              <%= link_to book_path(@book.id) do %>
                 <%= @book.title %>
               <% end %>
             </td>
             <td>
-              <%= @book.opinion %>
+              <%= @book.body %>
             </td>
             <td>
               <% if @book.user == current_user %>
