@@ -1,7 +1,6 @@
 <div class="container px-5 px-sm-0">
 
-  <!--New bookが失敗したときのエラーメッセージ-->
-  <div class="row bg-secondary">
+  <div class="row">
     <% if @book.errors.any? %>
       <%= @book.errors.count %> errors prohibited this obj from being saved:
       <ul>
@@ -12,15 +11,14 @@
     <% end %>
   </div>
 
-
   <div class="row">
 
-    <div class="col-md-3 bg-primary">
+    <div class="col-md-3">
       <%= render 'users/userbook', book: @book, user: @user %>
     </div>
 
-    <!--右側の設定-->
-    <div class="col-md-8 offset-md-1 bg-warning">
+
+    <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
       <table class="table tablehover table-inverse">
         <thead>

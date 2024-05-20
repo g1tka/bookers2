@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   resources :books, only: [:index, :edit, :update, :show, :new, :create, :destroy]
 
 
-#  get 'books/:id' => 'books#show', as 'book'
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
 

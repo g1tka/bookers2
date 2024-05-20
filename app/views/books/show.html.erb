@@ -3,41 +3,43 @@
 
 
     <div class="col-md-3 bg-primary">
-      <%= render 'users/userbook', book: @book_, user: @user %>
+      <%= render 'users/userbook', book: @book_new, user: @user %>
     </div>
 
-<!--右側のBook詳細画面-->
-<div class="col-md-8 offset-md-1">
-  <h2>Book detail</h2>
-  <table class="table">
-    <tbody>
-      <tr>
-        <td>
-          <%= image_tag @book.user.get_profile_image(100,100) %>
-          <%= link_to users_path do %>
-            <br><%= @book.user.name %>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to users_path do %>
-            <%= @book.title %>
-          <% end %>
-        </td>
-        <td>
-          <%= @book.opinion %>
-        </td>
-        <td>
-          <% if @book.user == current_user %>
-            <%= link_to "Edit", edit_book_path(@book.id), class: "button btn-sm btn-success" %>
-          <% end %>
-        </td>
-        <td>
-          <% if @book.user == current_user %>
-            <%= link_to "Destroy", books_path(@book.id), class: "button btn-sm btn-danger", method: :delete,
-                         "data-confirm" => "本当に消しますか？" %>
-          <% end %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>
+              <%= image_tag @book.user.get_profile_image(100,100) %>
+              <%= link_to users_path do %>
+                <br><%= @book.user.name %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to users_path do %>
+                <%= @book.title %>
+              <% end %>
+            </td>
+            <td>
+              <%= @book.opinion %>
+            </td>
+            <td>
+              <% if @book.user == current_user %>
+                <%= link_to "Edit", edit_book_path(@book.id), class: "button btn-sm btn-success" %>
+              <% end %>
+            </td>
+            <td>
+              <% if @book.user == current_user %>
+                <%= link_to "Destroy", @book, class: "button btn-sm btn-danger", method: :delete,
+                             "data-confirm" => "本当に消しますか？" %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
 </div>
